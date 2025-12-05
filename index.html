@@ -8,8 +8,23 @@
 </head>
 <body>
   <div id="game">
+    <!-- 背景・キャラは img 要素。CSS で正しく表示する -->
     <img id="bg" src="assets/bg-park.svg" alt="background" />
     <img id="char" src="assets/char-smile.svg" alt="character" />
+
+    <!-- 開始画面オーバーレイ -->
+    <div id="start-screen" class="overlay">
+      <div class="panel">
+        <h1>短いアドベンチャー</h1>
+        <div class="btns">
+          <button id="btn-new">新規スタート</button>
+          <button id="btn-load">ロード</button>
+        </div>
+        <div id="save-info" class="save-info"></div>
+      </div>
+    </div>
+
+    <!-- ゲーム UI -->
     <div id="ui">
       <div id="textbox">
         <div id="speaker"></div>
@@ -17,6 +32,9 @@
         <div id="choices"></div>
       </div>
     </div>
+
+    <!-- 小さなトースト / メッセージ表示 -->
+    <div id="toast" class="toast" aria-live="polite"></div>
   </div>
 
   <script src="game.js"></script>
