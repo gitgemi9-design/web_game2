@@ -12,20 +12,26 @@ body{background:linear-gradient(180deg,#071029 0%, #112033 100%);color:var(--tex
 #game{position:relative;width:900px;height:600px;border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.6);background:#071029}
 
 /* 背景画像 (img) をカバー表示 */
-#bg{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
+#bg{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
 
 /* キャラ画像 */
-#char{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);height:420px;max-height:70%;pointer-events:none}
+#char{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);height:420px;max-height:70%;pointer-events:none;z-index:10}
 
 /* スタート画面オーバーレイ */
 .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-#start-screen{background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.4));z-index:30}
-#start-screen .panel{background:var(--panel);padding:24px;border-radius:12px;text-align:center;min-width:300px}
-#start-screen h1{margin:0 0 14px 0;color:var(--accent)}
+#start-screen{background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.4));z-index:60;display:flex}
+#start-screen .panel{background:var(--panel);padding:28px 28px;border-radius:12px;text-align:center;min-width:340px;max-width:520px}
+#start-screen h1{margin:0 0 14px 0;color:var(--accent);font-size:28px}
 #start-screen .btns{display:flex;gap:12px;justify-content:center;margin-bottom:8px}
-#start-screen button{padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:var(--text);cursor:pointer}
+#start-screen button{padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));color:var(--text);cursor:pointer;font-weight:600}
 #start-screen button:disabled{opacity:0.45;cursor:default}
-.save-info{font-size:13px;color:#d6e8ff}
+.save-info{font-size:13px;color:#d6e8ff;margin-top:8px}
+
+/* 大きなスタートボタンスタイル（任意） */
+#btn-new{font-size:16px;padding:12px 22px}
+
+/* UI テキストボックス */
+#ui{position:absolute;left:0;right:0;bottom:12px;padding:12px;z-index:40}
 
 /* UI テキストボックス */
 #ui{position:absolute;left:0;right:0;bottom:12px;padding:12px;z-index:20}

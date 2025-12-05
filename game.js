@@ -9,19 +9,43 @@
       speaker: '',
       text: '今日は短いお散歩のはじまり。どうする？',
       choices: [
-        {text:'一緒に行く', to:'meet'},
+        {text:'一緒に行く', to:'meet_intro'},
         {text:'遠慮する', to:'decline'}
       ]
     },
-    meet: {
+    meet_intro: {
       bg: 'assets/bg-park.svg',
       char: 'assets/char-smile.svg',
       speaker: '友人',
-      text: 'よかった！天気もいいし、近くのカフェに寄らない？',
+      text: '久しぶり！少し歩きながら話さない？今日はゆっくりめで大丈夫。',
       choices: [
-        {text:'カフェに寄る', to:'cafe_arrive'},
-        {text:'今日は散歩だけ', to:'walk_only'}
+        {text:'歩きながら話す', to:'park_chat'},
+        {text:'近所のカフェへ', to:'cafe_arrive'}
       ]
+    },
+    park_chat: {
+      bg: 'assets/bg-park.svg',
+      char: 'assets/char-think.svg',
+      speaker: '友人',
+      text: 'この公園、落ち着くね。最近どんなことしてるの？',
+      choices: [
+        {text:'仕事の話をする', to:'park_work'},
+        {text:'最近の趣味を話す', to:'park_hobby'}
+      ]
+    },
+    park_work: {
+      bg: 'assets/bg-park.svg',
+      char: 'assets/char-think.svg',
+      speaker: '',
+      text: '新しいプロジェクトで忙しかったけど、学びが多かったよ。',
+      choices: [ {text:'カフェに行く', to:'cafe_arrive'}, {text:'別れを告げる', to:'ending_alone'} ]
+    },
+    park_hobby: {
+      bg: 'assets/bg-park.svg',
+      char: 'assets/char-smile.svg',
+      speaker: '',
+      text: '最近は写真を始めたんだ。今度一緒に撮りに行こうよ。',
+      choices: [ {text:'約束する', to:'ending_friendship'}, {text:'また今度', to:'ending_alone'} ]
     },
     cafe_arrive: {
       bg: 'assets/bg-cafe.svg',
@@ -30,7 +54,8 @@
       text: 'いらっしゃいませ。おすすめは本日のブレンドです。',
       choices: [
         {text:'コーヒーにする', to:'coffee_chat'},
-        {text:'紅茶にする', to:'tea_chat'}
+        {text:'紅茶にする', to:'tea_chat'},
+        {text:'席だけにする', to:'sit_only'}
       ]
     },
     coffee_chat: {
@@ -53,11 +78,11 @@
         {text:'趣味の話をする', to:'talk_hobby'}
       ]
     },
-    walk_only: {
-      bg: 'assets/bg-park.svg',
+    sit_only: {
+      bg: 'assets/bg-cafe.svg',
       char: 'assets/char-smile.svg',
       speaker: '友人',
-      text: '歩くだけでも充分リフレッシュできるよね。たくさん話せたし良かった！',
+      text: '今日はのんびりするだけでいいね。話もゆっくりできてよかった。',
       choices: [ {text:'タイトルに戻る', to:'start'} ]
     },
     talk_work: {
@@ -79,6 +104,20 @@
       char: 'assets/char-sad.svg',
       speaker: '友人',
       text: 'そうか……残念だけど、また今度ね。',
+      choices: [ {text:'タイトルに戻る', to:'start'} ]
+    },
+    ending_friendship: {
+      bg: 'assets/bg-park.svg',
+      char: 'assets/char-smile.svg',
+      speaker: '',
+      text: '新しい約束ができて、これからが楽しみになった。良い1日だった。',
+      choices: [ {text:'タイトルに戻る', to:'start'} ]
+    },
+    ending_alone: {
+      bg: 'assets/bg-home.svg',
+      char: 'assets/char-sad.svg',
+      speaker: '',
+      text: '今日は一人でゆっくり過ごすことにした。次はもっと元気に会おう。',
       choices: [ {text:'タイトルに戻る', to:'start'} ]
     }
   }
